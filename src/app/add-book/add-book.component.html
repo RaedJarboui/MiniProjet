@@ -1,0 +1,34 @@
+<p>add-product works!</p>
+<div>
+    <h1>Create User</h1>
+    <form [formGroup]="form" (ngSubmit)="bookService.submit(form.value)">
+        <div class="form-group">
+            <label>Id</label>
+            <input type="text" formControlName="id" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>title</label>
+            <input class="form-control" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label>author</label>
+            <input type="text" formControlName="author" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>price</label>
+            <input type="number" formControlName="price" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>quantity</label>
+            <input type="number" formControlName="quantity" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>image</label>
+            <input id="file" type="file" formControlName="image" (change)="onFileChange($event)">
+        </div>
+        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
+
+
+        <button type="submit">Submit</button>
+    </form>
+</div>

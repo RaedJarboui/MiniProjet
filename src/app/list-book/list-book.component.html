@@ -1,0 +1,42 @@
+<h1>Books</h1>
+<button type="button" [routerLink]="['new']">Create new Book</button>
+<br>
+<nav class="navbar">
+    <input class="form-control" type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Enter Firstname to search">
+</nav>
+
+<table border="1" class="table table-bordered" class="text-lg-center">
+
+   
+        <tr>
+            <td (click)="sort('id')">
+                id&nbsp;
+                <i class="fa fa-sort"></i>
+            </td>
+            <td (click)="sort('title')">
+                title&nbsp;
+                <i class="fa fa-sort"></i>
+
+            </td>
+            <td>
+                author
+            </td>
+            <td>
+                price
+            </td>
+            <td>
+                quantity
+            </td>
+            <td>
+                image
+            </td>
+         
+            <td>
+                action
+            </td>
+    </tr> 
+    <tr app-book [book]="book" [ngClass]="{'C1': book.price >=500, 'C2':book.price <500 }" *ngFor="let book of books | orderBy: key : reverse | searchfilter:searchValue |paginate: {itemsPerPage:2,currentPage:p};">
+        
+</tr>
+</table>  
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

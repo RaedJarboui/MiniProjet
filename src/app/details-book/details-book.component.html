@@ -1,0 +1,30 @@
+
+   
+<div class="row" id="contentToPDF">
+    <div class="col-xs-12">
+        <img src="{{book?.fileSource}}" style="height: 400px; width:400px"/>
+
+
+        <h1> Le titre de Livre est : {{book?.title}} </h1> 
+
+         <h2> Le nom d'auteur  de Livre est :{{book?.author}}</h2>
+
+         <h3> Prix :{{book?.price}}</h3>
+
+         <h3>Quantité du livre : {{book?.quantity}}</h3>
+        
+
+    </div>
+
+</div>
+    
+<button class="btn btn-primary" (click)="onBack()">Retour</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="downloadPDF()">Export to PDF</button>   
+
+     
+       
+
+        
+        
+    
+    
+

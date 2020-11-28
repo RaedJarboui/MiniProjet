@@ -1,0 +1,41 @@
+
+   
+
+    
+        <td>
+            {{book?.id}}
+
+        </td>
+        <td>
+            {{book?.title}}
+
+        </td>
+        <td>
+            {{book?.author}}
+
+        </td>
+        <td>
+            {{book?.price}}
+
+        </td>
+        <td>
+            {{book?.quantity}}
+
+        </td>
+        <td>
+            <img src="{{book?.fileSource}}" style="height: 100px; width:100px"/>
+
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" (click)="bookService.deletebook(book.id)">Remove</button>
+            <button type="button" class="btn btn-primary"  [routerLink]="[book.id]">Update</button>
+            <button type="button" class="btn btn-secondary" [routerLink]="['details',book.id]">Details</button>
+
+        </td>
+       
+
+        
+        
+    
+    
+
