@@ -10,8 +10,7 @@ import { BookService } from '../shared/book.service';
 })
 export class AddBookComponent implements OnInit {
   form: FormGroup;
-  imageSrc: string;
-
+  imageSrc: string; //image
 
   constructor(public bookService: BookService, private router: Router,private fb: FormBuilder) {
     this.form = this.fb.group({
