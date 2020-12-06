@@ -11,6 +11,7 @@ import { BookService } from '../shared/book.service';
 export class ListBookComponent implements OnInit {
 books;
 searchValue: string;
+title;
 p:number=1;
   constructor(private bookService: BookService) { }
 
@@ -31,5 +32,15 @@ p:number=1;
 
   }
   
-
+  searchTitle(): void {
+    this.bookService.findByTitle(this.title)
+      .subscribe(
+        data => {
+          this.books = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
 }

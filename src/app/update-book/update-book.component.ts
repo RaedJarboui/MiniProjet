@@ -31,6 +31,8 @@ export class UpdateBookComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
   }
   onFileChange(event) {
 
@@ -69,12 +71,14 @@ export class UpdateBookComponent implements OnInit {
     }
 
   }
+  
   modifyBook(){
-    this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+   
     this.bookService.getBookById(this.id).subscribe((result)=>{
       this.book=result;
       this.form.patchValue(this.book);
+      console.log(result);
+
       });
    
   this.bookService.updateBook(this.id,this.form.value).subscribe(() =>{

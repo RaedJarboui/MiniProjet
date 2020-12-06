@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,6 +28,10 @@ export class BookService {
     return this.http.put<Book>('/api/books/' +id, data);
 
 }
+findByTitle(title: string): Observable<any> {
+  let params1 = new HttpParams().set('title',title);
+  return this.http.get('/api/books/',{params:params1});
+}
 deletebook(id){
   this.deleteBook(id).subscribe(()=>{
     this.router.navigate(['/books']);
@@ -41,4 +45,5 @@ deletebook(id){
   
     })
   }
+  
 }
