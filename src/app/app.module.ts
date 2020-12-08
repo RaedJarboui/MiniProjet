@@ -21,6 +21,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import { BookComponent } from './book/book.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'auth/signup', component: SignUpComponent },
   { path: 'auth/signin', component: SignInComponent },
   { path: 'books',canActivate: [AuthGuardService], component: ListBookComponent },
+  { path: 'books/reload/:id',canActivate: [AuthGuardService], component: DeleteBookComponent },
   { path: 'books/new',canActivate: [AuthGuardService], component: AddBookComponent },
   { path: 'books/:id',canActivate: [AuthGuardService], component: UpdateBookComponent },
   { path: 'books/details/:id',canActivate: [AuthGuardService], component: DetailsBookComponent },
@@ -47,7 +49,8 @@ const routes: Routes = [
     SignInComponent,
     HeaderComponent,
     SearchfilterPipe,
-    BookComponent
+    BookComponent,
+    DeleteBookComponent
   ],
   imports: [
     BrowserModule,

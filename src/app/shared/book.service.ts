@@ -10,13 +10,13 @@ import { Book } from '../models/Book';
 })
 export class BookService {
   form: FormGroup;
-
+   books;
   constructor(private http: HttpClient,private router: Router,private route: ActivatedRoute) { }
   getAllBooks(){
     return this.http.get<Book[]>('/api/books/');
   }
   getBookById(id:number){
-    return this.http.get<Book>('/api/books/' +id);
+    return this.http.get<Book[]>('/api/books/' +id);
   }
   deleteBook(id:number){
     return this.http.delete('/api/books/' +id);
@@ -25,16 +25,25 @@ export class BookService {
     return this.http.post('/api/books/',data);
   }
   updateBook( id:any, data:any){
-    return this.http.put<Book>('/api/books/' +id, data);
+    return this.http.put<Book[]>('/api/books/' +id, data);
 
 }
 findByTitle(title: string): Observable<any> {
   let params1 = new HttpParams().set('title',title);
   return this.http.get('/api/books/',{params:params1});
 }
+getBooks(){
+  this.getAllBooks().subscribe((data)=>{
+    this.books=data;console.log(this.books)
+        
+        }),
+        errors =>{
+          console.log(errors);
+        }
+}
 deletebook(id){
   this.deleteBook(id).subscribe(()=>{
-    this.router.navigate(['/books']);
+    this.router.navigate(['/reload']);
   console.log("deleted");
   });
   }

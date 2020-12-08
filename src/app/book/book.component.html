@@ -27,7 +27,7 @@
 
         </td>
         <td>
-            <button type="button" class="btn btn-danger" (click)="bookService.deletebook(book.id)">Remove</button>
+            <button type="button" class="btn btn-danger" [routerLink]="['reload',book.id]">Remove</button>
             <button type="button" class="btn btn-primary"  [routerLink]="[book.id]">Update</button>
             <button type="button" class="btn btn-secondary" [routerLink]="['details',book.id]">Details</button>
 

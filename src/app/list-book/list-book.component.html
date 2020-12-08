@@ -25,7 +25,8 @@
   </div>
 
 
-<table border="2" class="table table-hover" >
+
+<table border="2" class="table table-hover" *ngIf="books"  >
     <thead class="thead-dark">
 
 
@@ -59,7 +60,7 @@
     </tr> 
 </thead>
 
-    <tr app-book [book]="book" [ngClass]="{'C1': book.price >=500, 'C2':book.price <500 }" *ngFor="let book of books | orderBy: key : reverse | searchfilter:searchValue |paginate: {itemsPerPage:2,currentPage:p};">
+    <tr app-book [book]="book" [index]="index" [ngClass]="{'C1': book.price >=500, 'C2':book.price <500 }" *ngFor="let book of books | orderBy: key : reverse | searchfilter:searchValue |paginate: {itemsPerPage:3,currentPage:p};let i = index; ">
         
 </tr>
 </table>  

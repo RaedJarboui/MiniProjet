@@ -13,7 +13,8 @@ books;
 searchValue: string;
 title;
 p:number=1;
-  constructor(private bookService: BookService) { }
+index;
+  constructor(public bookService: BookService) { }
 
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe((data)=>{
@@ -43,4 +44,5 @@ p:number=1;
           console.log(error);
         });
   }
+ 
 }
