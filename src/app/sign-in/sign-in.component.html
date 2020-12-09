@@ -1,21 +1,57 @@
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        <h2>Connexion</h2>
-        <form [formGroup]="signInForm" (ngSubmit)="Submit()">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" id="email" type="text" formControlName="email">
-             
-            </div>
-            <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <input class="form-control" id="password" type="text" formControlName="password">
-               
-
-            </div>
-            <button class="btn btn-primary" type="submit" >Connexion</button>
-
-        </form>
-        <p class="text-danger">{{errorMessage}}</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="signInForm" (ngSubmit)="Submit()">
+                <div class="form-group">
+                <label for="email">Email address</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    id="email"
+                    class="form-control"
+                    placeholder="example@mail.com"
+                    formControlName="email"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <div class="input-group">
+                  <!-- Change input type to be able to accept dynamic data -->
+                  <input
+                    [type]="fieldTextType ? 'text' : 'password'"
+                    class="form-control"
+                    formControlName="password"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i
+                        class="fa"
+                        [ngClass]="{
+                          'fa-eye-slash': !fieldTextType,
+                          'fa-eye': fieldTextType
+                        }"
+                        (click)="toggleFieldTextType()"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+  
+              
+              <button class="btn-primary btn btn-block">
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

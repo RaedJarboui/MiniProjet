@@ -14,6 +14,7 @@ export class SignInComponent implements OnInit {
   errorMessage: string;
   Email;
   Pwd;
+  fieldTextType: boolean;
   
 
   constructor(private fb: FormBuilder,
@@ -32,6 +33,7 @@ export class SignInComponent implements OnInit {
      
 
     });
+
   }
   get email() {
     return this.signInForm.get('email');
@@ -39,6 +41,11 @@ export class SignInComponent implements OnInit {
   get password() {
     return this.signInForm.get('password');
   }
+  toggleFieldTextType(){
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+
   Submit(){
 this.Email = this.signInForm.value['email'];
 this.Pwd = this.signInForm.value['password']

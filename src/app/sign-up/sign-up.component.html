@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
         <h2>Creer un compte</h2>
-        <form [formGroup]="signUpForm" (ngSubmit)="Submit()">
+        <form #f="ngForm" (ngSubmit)="Submit(f)">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input class="form-control" id="email" type="text" formControlName="email">
+                <input class="form-control" id="email" type="text" required email ngModel name="email" #email="ngModel">
                 <div *ngIf="email.valid" class="alert alert-success">
                     email success
                   </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input class="form-control" id="password" type="text" formControlName="password">
+                <input class="form-control" id="password" type="password" required minlength="8" ngModel name="password" #password="ngModel">
                 <div *ngIf="password.valid" class="alert alert-success">
                     Mot de passe success
                   </div>
@@ -28,7 +28,7 @@
                   </div>
 
             </div>
-            <button class="btn btn-primary" type="submit" [disabled]="signUpForm.invalid">Creer mon compte</button>
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Creer mon compte</button>
 
         </form>
         <p class="text-danger">{{errorMessage}}</p>

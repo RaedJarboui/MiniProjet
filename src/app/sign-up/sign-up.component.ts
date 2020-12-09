@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 
@@ -22,25 +22,14 @@ export class SignUpComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.initForm();
   }
   initForm(){
-    this.signUpForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required,Validators.pattern('[a-zA-Z0-9]{8,}')]]
-     
-
-    });
+ 
   }
-  get email() {
-    return this.signUpForm.get('email');
-  }
-  get password() {
-    return this.signUpForm.get('password');
-  }
-  Submit(){
-this.Email = this.signUpForm.value['email'];
-this.Pwd = this.signUpForm.value['password']
+ 
+  Submit(f: NgForm){
+this.Email = f.value['email'];
+this.Pwd = f.value['password']
 this.authService.createNewUser(this.Email,this.Pwd).then(
   () => {
     this.router.navigate(['/books']);
