@@ -4,27 +4,6 @@
 <nav class="navbar">
     <input class="form-control" type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Enter Firstname to search">
 </nav>
-<div class="col-md-8">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="title"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
-        >
-          Search
-        </button>
-      </div>
-    </div>
-  </div>
-
-
 
 <table border="2" class="table table-hover" *ngIf="books"  >
     <thead class="thead-dark">

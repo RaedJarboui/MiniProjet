@@ -14,7 +14,7 @@ export class UpdateBookComponent implements OnInit {
   book;
   imageSrc: string;
 
-  constructor(private bookService:BookService,private route: ActivatedRoute, private router: Router,private fb: FormBuilder) { 
+  constructor(public bookService:BookService,private route: ActivatedRoute, private router: Router,private fb: FormBuilder) { 
     this.form = this.fb.group({
       id: [null, [Validators.required]],
       title: [null, [Validators.required]],
@@ -78,14 +78,11 @@ export class UpdateBookComponent implements OnInit {
 
   }
   
-  modifyBook(){
+  modifyBook(id,form){
    
     
-   
-  this.bookService.updateBook(this.id,this.form.value).subscribe(() =>{
-    this.router.navigate(['books']);
+  this.bookService.modifyBook(id,form); 
   
-  });
   }
 
 }

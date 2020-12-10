@@ -1,6 +1,6 @@
 <div>
     <h1>Modify User</h1>
-    <form [formGroup]="form" (ngSubmit)="modifyBook()">
+    <form [formGroup]="form" (ngSubmit)="bookService.modifyBook(form.value.id,form.value)">
         <div class="form-group">
             <label>Id</label>
             <input type="text" formControlName="id" class="form-control" >

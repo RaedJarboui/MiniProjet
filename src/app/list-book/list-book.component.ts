@@ -33,16 +33,6 @@ index;
 
   }
   
-  searchTitle(): void {
-    this.bookService.findByTitle(this.title)
-      .subscribe(
-        data => {
-          this.books = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
+  
  
 }

@@ -11,7 +11,14 @@ import { Book } from '../models/Book';
 export class BookService {
   form: FormGroup;
    books;
+   id;
   constructor(private http: HttpClient,private router: Router,private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    /*this.id = this.route.snapshot.params['id'];
+    console.log(this.id);*/
+    
+    
+  }
   getAllBooks(){
     return this.http.get<Book[]>('/api/books/');
   }
@@ -43,7 +50,7 @@ getBooks(){
 }
 deletebook(id){
   this.deleteBook(id).subscribe(()=>{
-    this.router.navigate(['/reload']);
+    this.router.navigate(['/books']);
   console.log("deleted");
   });
   }
@@ -54,5 +61,11 @@ deletebook(id){
   
     })
   }
+  modifyBook(id,form){ 
+    this.updateBook(id,form).subscribe(() =>{
+      this.router.navigate(['books']);
+    
+    });
+    }
   
 }

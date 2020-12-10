@@ -14,10 +14,7 @@ id;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.bookService.deleteBook(this.id).subscribe(()=>{
-      this.router.navigate(['/books']);
-    console.log("deleted");
-    });
-  }
+    this.bookService.deletebook(this.id);
 
+}
 }
