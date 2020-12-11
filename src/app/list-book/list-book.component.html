@@ -39,7 +39,7 @@
     </tr> 
 </thead>
 
-    <tr app-book [book]="book" [index]="index" [ngClass]="{'C1': book.price >=500, 'C2':book.price <500 }" *ngFor="let book of books | orderBy: key : reverse | searchfilter:searchValue |paginate: {itemsPerPage:3,currentPage:p};let i = index; ">
+    <tr app-book (parentFunction)="parentFunction($event)" [book]="book" [index]="index" [ngClass]="{'C1': book.price >=500, 'C2':book.price <500 }" *ngFor="let book of books | orderBy: key : reverse | searchfilter:searchValue |paginate: {itemsPerPage:3,currentPage:p};let i = index; ">
         
 </tr>
 </table>  

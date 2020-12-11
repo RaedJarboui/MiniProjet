@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BookService } from '../shared/book.service';
 
 @Component({
@@ -11,8 +11,9 @@ export class BookComponent implements OnInit {
   @Input() index;
 
   constructor(public bookService: BookService) { }
-
+@Output() parentFunction:EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
+    this.parentFunction.emit("Message from child to parent");
   }
   
 

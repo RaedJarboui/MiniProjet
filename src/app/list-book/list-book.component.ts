@@ -32,6 +32,9 @@ index;
     this.reverse =!this.reverse;
 
   }
+  parentFunction(data){
+    console.log(data);
+  }
   
   
  
